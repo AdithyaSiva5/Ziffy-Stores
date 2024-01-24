@@ -1,0 +1,438 @@
+<%- include("../partials/user-header")%>
+
+<main class="main"> 
+    <header>
+            <div class="header-bottom header-bottom-bg-color  mt-20">
+                <div class="container">
+                    <div class="header-wrap header-space-between position-relative">
+                        <!-- Logo for large screens -->
+                        <div class="logo d-none d-lg-block">
+                            <a href="/"><img src="userAssets/imgs/theme/logo.svg" alt="logo" style="width: 150px;"></a>
+                            <!-- Adjust the width as needed -->
+                        </div>
+    
+                        <div class="header-nav d-none d-lg-flex justify-content-end align-items-center">
+                            <!-- Your existing navigation code -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <section class="pt-40 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 m-auto">
+                        <div class="row  d-flex align-items-center justify-content-center" >
+
+                            <div class="col-lg-6">
+                                <div class="login_wrap widget-taber-content p-30 background-white border-radius-5">
+                                    <div class="padding_eight_all bg-white">
+                                        <div class="heading_s1">
+                                            <h3 class="mb-30">Create an Account</h3>
+                                        </div>
+                                        <%if (typeof error !== 'undefined') {%>
+                                            <p class="text-center" style="color:red;"><%= error %></p>
+                                        <%}%>
+                                            <form method="post" action="/post-signup" onsubmit="return validateForm()">
+                                            <div class="form-group">
+                                                <input type="text" required="" name="username" placeholder="Username" id="username">
+                                                <div id="usernameError" class="error-message"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" required="" name="email" placeholder="Email" id="email">
+                                                <div id="emailError" class="error-message"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input required="" type="password" name="password" placeholder="Password" id="password">
+                                                <div id="passwordError" class="error-message"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input required="" type="password" name="confirmpassword" placeholder="Confirm password" id="confirmpassword">
+                                                <div id="confirmpasswordError" class="error-message"></div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="showPasswordCheckbox" onclick="togglePasswordVisibility()">
+                                                <label class="form-check-label" for="showPasswordCheckbox">Show Password</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="number" required="" name="phoneNumber" placeholder="Phone Number" id="phoneNumber">
+                                                <div id="phoneNumberError" class="error-message"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-sm btn-fill-out btn-block hover-up" id="sendOTPButton" name="sendOTPBtn" onclick="sendOTP()">Send OTP</button>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-sm btn-fill-out btn-block hover-up" type="button" id="resendOTPButton" style="display: none;">Resend OTP</button>
+                                            </div>
+                                            <div class="form-group">
+                                                <div id="timer" class="mb-3" style="display: none; color: rgb(0, 0, 0);"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" required="" name="otpInput" placeholder="Enter OTP" id="otpInput">
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-sm btn-fill-out btn-block hover-up" id="verifyOTPButton" name="verifyOTPBtn">Verify OTP</button>
+                                            </div>
+                                            <div class="login_footer form-group">
+                                                <!-- <div class="chek-form">
+                                                    <div class="custome-checkbox">
+                                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox12" value="">
+                                                        <label class="form-check-label" for="exampleCheckbox12"><span>I agree to terms &amp; Policy.</span></label>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-fill-out btn-block hover-up" name="loginbtn" id="submitButton">Submit &amp; Register</button>
+                                            </div>
+                                        </form>
+                                        <script>
+                                            function togglePasswordVisibility(){
+                                                var passwordInput = document.getElementById('password');
+                                        var confirmPasswordInput = document.getElementById('confirmpassword');
+                                        if (document.getElementById('showPasswordCheckbox').checked) {
+                                          passwordInput.type = 'text';
+                                          confirmPasswordInput.type = 'text';
+                                        } else {
+                                          passwordInput.type = 'password';
+                                          confirmPasswordInput.type = 'password';
+                                        }
+                                    }
+                                        </script>
+                                        
+                                        <div class="text-muted text-center">Already have an account? <a href="/login">Sign in now</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        
+        let countdown;
+        const timerElement = document.getElementById('timer');
+        const sendOTPButton = document.getElementById("sendOTPButton");
+        const resendOTPButton = document.getElementById("resendOTPButton");
+        const submitButton = document.getElementById("submitButton");
+        const verifyOTPBtn = document.getElementById("verifyOTPButton");
+        submitButton.disabled = true;
+        verifyOTPBtn.disabled = true;
+        
+
+        sendOTPButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Validate the form before sending OTP
+            if (validateForm()) {
+                const email = document.querySelector('input[name="email"]').value;
+                const phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
+
+                fetch(`/send-otp?email=${email}&phoneNumber=${phoneNumber}`)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log("Response from server", data);
+
+                    if (data.error) {
+                    // User already exists, display error message
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'error',
+                        title: data.error, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    } else {
+                    // User doesn't exist, continue with OTP sending logic
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    // startResendTimer();
+                    verifyOTPBtn.disabled = false; 
+                    document.getElementById('username').readOnly = true;
+                    document.getElementById('email').readOnly = true;
+                    document.getElementById('password').readOnly = true;
+                    document.getElementById('confirmpassword').readOnly = true;
+                    document.getElementById('phoneNumber').readOnly = true;      
+                    startResendTimer();  
+                    }
+                    })
+                    .catch((error) => {
+                        console.error("Error sending OTP", error);
+                    });
+            } 
+        });
+
+// Function to validate the form
+function validateForm() {
+        // Reset previous error messages
+        resetErrorMessages();
+
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmpassword').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+
+        // Validate username (should contain only characters without whitespace)
+        const usernamePattern = /^[A-Za-z]+$/;
+        if (!username.match(usernamePattern)) {
+            showError('usernameError', 'Username should contain only characters without whitespace');
+        }
+
+        // Validate email
+        const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        if (!email.match(emailPattern)) {
+            showError('emailError', 'Invalid email address');
+        }
+
+        // Validate password length
+        if (password.length < 6) {
+            showError('passwordError', 'Password must be at least 6 characters');
+        }
+
+        // Validate password strength (custom function)
+        if (!isStrongPassword(password)) {
+            showError('passwordError', 'Password should be strong (at least 8 characters, including uppercase, lowercase, digits, and special characters)');
+        }
+
+        // Validate password confirmation
+        if (password !== confirmPassword) {
+            showError('confirmpasswordError', 'Passwords do not match');
+        }
+        // if (confirmPassword.length < 6) {
+        //         showError('confirmpasswordError', 'Password must be at least 6 characters');
+                
+        //     }
+
+        // Validate phoneNumber (should be a number with exactly 10 digits)
+        if (isNaN(phoneNumber) || phoneNumber.length !== 10) {
+            showError('phoneNumberError', 'Phone number must be a number with exactly 10 digits');
+        }
+        if (!/^(?!([0-9])\1+$)[1-9]\d{9}$/.test(phoneNumber)) {
+            showError('phoneNumberError', 'Phone number must be a number with exactly 10 digits and no repeated digits');
+        }
+
+        // Check if there are any errors
+        const errorElements = document.querySelectorAll('.error-message');
+        for (const element of errorElements) {
+            if (element.textContent !== '') {
+                return false; // There are errors, prevent form submission
+            }
+        }
+
+        return true; // No errors, proceed with form submission
+    }
+
+    // Function to check if a password is strong
+    function isStrongPassword(password) {
+        // Use your own criteria for password strength
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return passwordPattern.test(password);
+    }
+
+            // Function to show error message
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.style.color = 'red'; 
+            errorElement.textContent = message;
+        }
+
+        // Function to reset error messages
+        function resetErrorMessages() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach((element) => {
+                element.textContent = '';
+            });
+        }
+        
+
+
+        // verify otp
+        const verifyOTPButton = document.getElementById("verifyOTPButton");
+
+        verifyOTPButton.addEventListener("click", function(e) {
+            const submitButton = document.getElementById("submitButton");
+            e.preventDefault();
+
+            // const phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
+            const otpInput = document.querySelector('input[name="otpInput"]').value;
+            fetch("/verify-otp", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({otpInput})
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the response from the server
+                if (data.error) {
+                    // User already exists, display error message
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'error',
+                        title: data.error, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else {
+                    // If successful, you can redirect or perform other actions
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    submitButton.disabled = false;
+                }
+                resetButton.disabled = false
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Handle other errors if needed
+            });
+        }) 
+        function startResendTimer(){
+            clearInterval(countdown);
+            let remainingTime = 25;
+            timerElement.style.display = 'block';
+            resendOTPButton.style.display = 'none';
+            sendOTPButton.style.display = 'none';
+
+            countdown = setInterval(()=>{
+                timerElement.textContent = `OTP expiring in ${remainingTime} seconds`;
+                remainingTime--;
+
+                if(remainingTime<0){
+                    clearInterval(countdown);
+            timerElement.style.display = 'none';
+            resendOTPButton.style.display = 'block';
+            sendOTPButton.style.display = 'none';
+            }
+
+            }, 1000);
+
+        }
+        resendOTPButton.addEventListener("click",  (e)=> {
+          e.preventDefault();
+
+          if (validateForm()) {
+                const email = document.querySelector('input[name="email"]').value;
+                const phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
+
+                fetch(`/send-otp?email=${email}&phoneNumber=${phoneNumber}`)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log("Response from server", data);
+
+                    if (data.error) {
+                    // User already exists, display error message
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'error',
+                        title: data.error, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    } else {
+                    // User doesn't exist, continue with OTP sending logic
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    // startResendTimer();
+                    verifyOTPBtn.disabled = false; 
+                    document.getElementById('username').readOnly = true;
+                    document.getElementById('email').readOnly = true;
+                    document.getElementById('password').readOnly = true;
+                    document.getElementById('confirmpassword').readOnly = true;
+                    document.getElementById('phoneNumber').readOnly = true;      
+                    startResendTimer2();  
+                    }
+                    })
+                    .catch((error) => {
+                        console.error("Error sending OTP", error);
+                    });
+            } 
+        });
+        function startResendTimer2() {
+    clearInterval(countdown);
+
+    let remainingTime = 25;
+    timerElement.style.display = 'block';
+    resendOTPButton.style.display = 'none';
+    sendOTPButton.style.display = 'none';
+
+    countdown = setInterval(() => {
+        timerElement.textContent = `Resend OTP in ${remainingTime} seconds`;
+        remainingTime--;
+
+        if (remainingTime < 0) {
+            // Display the resend button after 25 seconds
+            timerElement.style.display = 'none';
+            resendOTPButton.style.display = 'block';
+            sendOTPButton.style.display = 'none';
+            clearInterval(countdown); // Clear the countdown after displaying the resend button
+        }
+
+    }, 1000);
+}
+        
+
+    </script>
+    
+
+    <!-- Vendor JS-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+    <script src="/userAssets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/userAssets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/userAssets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/userAssets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/userAssets/js/plugins/slick.js"></script>
+    <script src="/userAssets/js/plugins/jquery.syotimer.min.js"></script>
+    <script src="/userAssets/js/plugins/wow.js"></script>
+    <script src="/userAssets/js/plugins/jquery-ui.js"></script>
+    <script src="/userAssets/js/plugins/perfect-scrollbar.js"></script>
+    <script src="/userAssets/js/plugins/magnific-popup.js"></script>
+    <script src="/userAssets/js/plugins/select2.min.js"></script>
+    <script src="/userAssets/js/plugins/waypoints.js"></script>
+    <script src="/userAssets/js/plugins/counterup.js"></script>
+    <script src="/userAssets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="/userAssets/js/plugins/images-loaded.js"></script>
+    <script src="/userAssets/js/plugins/isotope.js"></script>
+    <script src="/userAssets/js/plugins/scrollup.js"></script>
+    <script src="/userAssets/js/plugins/jquery.vticker-min.js"></script>
+    <script src="/userAssets/js/plugins/jquery.theia.sticky.js"></script>
+    <!-- Template  JS -->
+    <script src="/userAssets/js/maind134.js?v=3.4"></script>
+
+    <%- include("../partials/user-footer")%>

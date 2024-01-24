@@ -1,0 +1,329 @@
+<%- include("../partials/admin-header")%>
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+            <a href="/admin" class="brand-wrap">
+                <img src="/adminAssets/imgs/theme/logo.svg" class="logo" alt="Ziffy Dashboard">
+            </a>
+            <div>
+                <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i> </button>
+            </div>
+        </div>
+        <nav>
+            <ul class="menu-aside">
+
+                <li class="menu-item ">
+                    <a class="menu-link" href="/admin/admin-dashboard"> <i class="icon material-icons md-home"></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/product-list"> <i class="icon material-icons md-shopping_bag"></i>
+                        <span class="text">Products</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/category-list"> <i class="icon material-icons md-stars"></i>
+                        <span class="text">Category</span> </a>
+                </li>
+                
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/user-manage"> <i class="icon material-icons md-person"></i>
+                        <span class="text">Users</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class="menu-link" href="/admin/orders"> <i class="icon material-icons md-shopping_cart"></i>
+                        <span class="text">Orders</span>
+                    </a>
+                </li>
+                <li class="menu-item has-submenu ">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-local_offer"></i>
+                        <span class="text">Coupons</span>
+                    </a>
+                    <div class="submenu ">
+                        <a href="/admin/coupons">Coupon View</a>
+                        <a class="active" href="/admin/add-coupon">Add Coupon</a>
+                    </div>
+                </li>  
+                <li class="menu-item has-submenu">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-request_quote"></i>
+                        <span class="text">Offers</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/offer-list">Offer View</a>
+                        <a href="/admin/add-offer">Add Offer</a>
+                    </div>
+                </li>
+                <li class="menu-item has-submenu active">
+                    <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-image"></i>
+                        <span class="text">Banners</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="/admin/banners">Banner View</a>
+                        <a href="/admin/add-banner">Add Banner</a>
+                    </div>
+                </li>
+                <li class="menu-item ">
+                    <a class="menu-link" href="/admin/sales-report"> <i class="icon material-icons md-assessment"></i>
+                        <span class="text">Sales Report</span>
+                    </a>
+                </li>
+                 
+                <!-- <li class="menu-item">
+                    <a class="menu-link" href="page-form-product-1.html"> <i class="icon material-icons md-add_box"></i>
+                        <span class="text">Add product</span>
+                    </a>
+                </li> -->
+                <!-- <li class="menu-item">
+                    <a class="menu-link" href="page-transactions-1.html"> <i class="icon material-icons md-monetization_on"></i>
+                        <span class="text">Transactions</span>
+                    </a>
+                </li> -->
+                
+                <!-- <li class="menu-item">
+                    <a class="menu-link" href="page-reviews.html"> <i class="icon material-icons md-comment"></i>
+                        <span class="text">Reviews</span>
+                    </a>
+                </li> -->
+                
+                <!-- <li class="menu-item">
+                    <a class="menu-link" disabled href="#"> <i class="icon material-icons md-pie_chart"></i>
+                        <span class="text">Statistics</span>
+                    </a>
+                </li> -->
+            </ul>
+            <hr>
+            <ul class="menu-aside">
+                <!-- <li class="menu-item has-submenu">
+                    <a class="menu-link" href="#"> <i class="icon material-icons md-settings"></i>
+                        <span class="text">Settings</span>
+                    </a>
+                    <div class="submenu">
+                        <a href="page-settings-1.html">Setting sample 1</a>
+                        <a href="page-settings-2.html">Setting sample 2</a>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="page-blank.html"> <i class="icon material-icons md-local_offer"></i>
+                        <span class="text"> Starter page </span>
+                    </a>
+                </li> -->
+            </ul>
+            <br>
+            <br>
+        </nav>
+    </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div>
+                    <datalist id="search_terms">
+                        <option value="Products">
+                        <option value="New orders">
+                        <option value="Apple iphone">
+                        <option value="Ahmed Hassan">
+                    </datalist>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon" href="#">
+                            <i class="material-icons md-notifications animation-shake"></i>
+                            <span class="badge rounded-pill">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="requestfullscreen nav-link btn-icon"><i class="material-icons md-cast"></i></a>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownLanguage" aria-expanded="false"><i class="material-icons md-public"></i></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownLanguage">
+                            <a class="dropdown-item text-brand" href="#"><img src="/adminAssets/imgs/theme/flag-us.png" alt="English">English</a>
+                            <a class="dropdown-item" href="#"><img src="/adminAssets/imgs/theme/flag-fr.png" alt="Français">Français</a>
+                            <a class="dropdown-item" href="#"><img src="/adminAssets/imgs/theme/flag-jp.png" alt="Français">日本語</a>
+                            <a class="dropdown-item" href="#"><img src="/adminAssets/imgs/theme/flag-cn.png" alt="Français">中国人</a>
+                        </div>
+                    </li>
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="/adminAssets/imgs/people/avatar2.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                            <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-account_balance_wallet"></i>Wallet</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-receipt"></i>Billing</a>
+                            <a class="dropdown-item" href="#"><i class="material-icons md-help_outline"></i>Help center</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="content-main">
+          <div class="row">
+              <div class="col-9">
+                  <div class="content-header">
+                      <h3 class="content-title">Add Banner</h3>
+                      <!-- <div>
+                          <button class="btn btn-light rounded font-sm mr-5 text-body hover-up">Save to draft</button>
+                          <button class="btn btn-md rounded font-sm hover-up">Publich</button>
+                      </div> -->
+                  </div>
+              </div>
+              <div class="col-lg-12">
+                  <div class="card mb-4">
+                      <!-- <div class="card-header">
+                          <h4>Basic</h4>
+                      </div> -->
+                      <div class="card-body">
+                          <form action="/admin/post-add-banner" name="enq" id="banner-form" method="post" enctype="multipart/form-data">
+                              <div class="mb-4">
+                                  <label for="title" class="form-label">Banner Title</label>
+                                  <input type="text" placeholder="Enter banner title" class="form-control" name="title" id="title">
+                                  <div id="titleError" class="error-message"></div>
+                              </div>
+                              <div class="mb-4">
+                                <label for="subtitle" class="form-label">Banner Subtitle</label>
+                                <input type="text" placeholder="Enter banner subtitle" class="form-control" name="subtitle" id="subtitle">
+                                <div id="subtitleError" class="error-message"></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6 mb-4">
+                                <label class="form-label" for="image">Banner Image:</label>
+                                <input required class="form-control" type="file" name="image" id="image" />
+                              </div>
+                                  <div class="col-lg-6 mb-4">
+                                      <label class="form-label">Status</label>
+                                      <select class="form-select" name="status" id="status">
+                                          <option> Active</option>
+                                          <option> Inactive </option>
+                                      </select>
+                                      <div id="statusError" class="error-message"></div>
+                                  </div>
+                                </div>  
+                              <div class="mb-4">
+                                  <label class="form-label">Expiry Date</label>
+                                  <input type="date" placeholder="%" class="form-control" name="expiryDate" id="expiryDate">
+                                  <div id="expiryDateError" class="error-message"></div>
+                              </div>
+                              <div>
+                                  <button class="btn btn-md" id="submitButton" type="submit">Submit</button>
+                              </div>
+                          </form>
+                          
+                      </div>
+                  </div> 
+                  
+              </div>
+              
+          </div>
+      </section> <!-- content-main end// -->
+
+      <!-- coupon additon form validation -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const submitButton = document.getElementById('submitButton');
+            submitButton.addEventListener("click", (e)=>{
+              if(!validateForm()){
+                e.preventDefault();
+              }
+            });
+
+            function validateForm(){
+              resetErrorMessages();
+              const inputFields = [
+                    { id: 'title', name: 'Banner Title' },
+                    { id: 'subtitle', name: 'Banner Subtitle' },
+                    { id: 'status', name: 'Banner Status' },
+                    { id: 'expiryDate', name: 'Expiry Date' },
+                ];
+
+                let isValid = true;
+
+                inputFields.forEach((field) => {
+                    const originalValue = document.getElementById(field.id).value;
+                    const trimmedValue = originalValue.trim();
+
+                    if (trimmedValue.length === 0) {
+                        showError(`${field.id}Error`, `${field.name} cannot be empty`);
+                        isValid = false;
+                    }
+
+                    if (originalValue !== trimmedValue) {
+                        showError(`${field.id}Error`, `${field.name} cannot have whitespaces`);
+                        isValid = false;
+                    }
+                });
+
+                const expiryDateInput = document.getElementById('expiryDate');
+                const expiryDate = new Date(expiryDateInput.value);
+
+                if (expiryDate < new Date()) {
+                showError('expiryDateError', 'Expiry Date must be in the future');
+                isValid = false;
+                }
+
+                return isValid;
+            }
+
+            function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.color = 'red';
+            }   
+
+        
+            function resetErrorMessages() { 
+                const errorElements = document.querySelectorAll('.error-message');
+                errorElements.forEach((element) => {
+                    element.textContent = '';
+                });
+            }
+
+        });
+    </script>
+
+
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+                <div class="col-sm-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> ©, heeder.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end">
+                        All rights reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="/adminAssets/js/vendors/select2.min.js"></script>
+    <script src="/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="/adminAssets/js/main.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-form-product-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:32 GMT -->
+</html>
+

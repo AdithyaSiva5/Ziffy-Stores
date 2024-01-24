@@ -1,0 +1,197 @@
+﻿<%- include("../partials/user-header")%>
+
+
+    <main class="main">
+        <header>
+            <div class="header-bottom header-bottom-bg-color sticky-bar mt-20">
+                <div class="container">
+                    <div class="header-wrap header-space-between position-relative">
+                        <!-- Logo for large screens -->
+                        <div class="logo d-none d-lg-block">
+                            <a href="/"><img src="userAssets/imgs/theme/logo.svg" alt="logo" style="width: 150px;"></a>
+                            <!-- Adjust the width as needed -->
+                        </div>
+    
+                        <div class="header-nav d-none d-lg-flex justify-content-end align-items-center">
+                            <!-- Your existing navigation code -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="pt-80 pb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 m-auto">
+                        <div class="row  d-flex align-items-center justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
+                                    <div class="padding_eight_all bg-white">
+                                        <div class="heading_s1">
+                                            <%if (typeof subreddit !== 'undefined') {%>
+                                                <p class="text-center" style="color:red;"><%= subreddit %></p>
+                                            <%}%>
+                                            <h3 class="mb-30">Login</h3>
+                                        </div>
+                                        <form method="post" action="/post-login" id="loginForm" onsubmit="return validateForm()">
+                                            <div class="form-group">
+                                                <input type="text" required="" name="email" placeholder="Your Email" id="email">
+                                                <div id="emailError" class="error-message"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input required="" type="password" name="password" placeholder="Password" id="password">
+                                                <div id="passwordError" class="error-message"></div>
+                                            </div>
+                                            <div class="login_footer form-group">
+                                                <a class="text-muted" href="/forgetpassword">Forgot password?</a>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login" id="loginButton">Log in</button>
+                                            </div>
+                                            <div class="form-group">
+                                               <p>Don't have an account? <span><a href="/signup"> Sign up</a></span></p>
+                                            </div>
+                                            
+                                            <%if (typeof message !== 'undefined') {%>
+                                                <p class="text-center" style="color:rgb(20, 159, 36);"><%= message %></p>
+                                            <%}%>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main> 
+
+    
+    <script>
+        const loginButton = document.getElementById("loginButton");
+        loginButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+        if (validateForm()) {
+            // Get form values
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+            console.log(email);
+            console.log(password);
+
+    
+            // Perform client-side validation if needed
+    
+            // Send a request to your server
+            fetch("/post-login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the response from the server
+                if (data.error) {
+                    // Display error using Swal
+                    showError('passwordError', 'Wrong Password'); 
+                } else {
+                    // If successful, you can redirect or perform other actions
+                    Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: "Login successful",
+                    showConfirmButton: false,
+                    timer: 500
+                }).then(() => {
+                    window.location.href = "/";
+                });
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Handle other errors if needed
+            });
+        }
+        });
+
+        function validateForm() {
+            // Reset previous error messages
+            resetErrorMessages();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            if (!email.match(emailPattern)) {
+                showError('emailError', 'Invalid email address');
+                
+            }
+            if(password.length < 6) {
+                showError('passwordError', 'Wrong Password');               
+            }
+            if(!password){
+                showError('passwordError', 'Enter Password');
+            }
+
+            const errorElements = document.querySelectorAll('.error-message');
+            for (const element of errorElements) {
+                if (element.textContent !== '') {
+                    return false; // There are errors, prevent form submission
+                }
+            }
+
+            return true; // Placeholder, replace with your actual validation logic
+        }
+
+        // Function to show error message
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.style.color = 'red';   
+            errorElement.textContent = message;
+        }
+
+        // Function to reset error messages
+        function resetErrorMessages() {
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach((element) => {
+                element.textContent = '';
+            });
+        }
+        
+    </script>
+    
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="/userAssets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/userAssets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/userAssets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/userAssets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/userAssets/js/plugins/slick.js"></script>
+    <script src="/userAssets/js/plugins/jquery.syotimer.min.js"></script>
+    <script src="/userAssets/js/plugins/wow.js"></script>
+    <script src="/userAssets/js/plugins/jquery-ui.js"></script>
+    <script src="/userAssets/js/plugins/perfect-scrollbar.js"></script>
+    <script src="/userAssets/js/plugins/magnific-popup.js"></script>
+    <script src="/userAssets/js/plugins/select2.min.js"></script>
+    <script src="/userAssets/js/plugins/waypoints.js"></script>
+    <script src="/userAssets/js/plugins/counterup.js"></script>
+    <script src="/userAssets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="/userAssets/js/plugins/images-loaded.js"></script>
+    <script src="/userAssets/js/plugins/isotope.js"></script>
+    <script src="/userAssets/js/plugins/scrollup.js"></script> 
+    <script src="/userAssets/js/plugins/jquery.vticker-min.js"></script>
+    <script src="/userAssets/js/plugins/jquery.theia.sticky.js"></script>
+    <!-- Template  JS -->
+    <script src="/userAssets/js/maind134.js?v=3.4"></script>
+
+    <%- include("../partials/user-footer")%>

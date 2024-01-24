@@ -1,0 +1,1001 @@
+<%- include("../partials/user-header")%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
+
+<body>
+    <header class="header-area header-style-5">
+        <div class="header-top header-top-ptb-1 d-none d-lg-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="header-info">
+                            <ul>
+                                <li><i class="fi-rs-smartphone"></i> (+01) - 2345 - 6789</li>
+                                <li><i class="fi-rs-marker"></i>Kerala</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-4">
+                        <div class="text-center">
+                            <!-- <div id="news-flash" class="d-inline-block">
+                                <ul>
+                                    <li>Get great devices up to 50% off <a href="shop-grid-right.html">View details</a></li>
+                                    <li>Supper Value Deals - Save more with coupons</li>
+                                    <li>Trendy 25silver jewelry, save up 35% off today <a href="shop-grid-right.html">Shop now</a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4">
+                        <div class="header-info header-info-right">
+                            <ul>
+                                <li>
+                                    <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i> English <i class="fi-rs-angle-small-down"></i></a>
+                                    <ul class="language-dropdown">
+                                        <li><a href="#"><img src="/userAssets/imgs/theme/flag-fr.png" alt="">Français</a></li>
+                                        <li><a href="#"><img src="/userAssets/imgs/theme/flag-dt.png" alt="">Deutsch</a></li>
+                                        <li><a href="#"><img src="/userAssets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
+                                    </ul>
+                                </li>
+                                <%if(!loggedIn)  {%>
+                                    <li><i class="fi-rs-user"></i><a href="/login">Log In</a></li>
+                                    <li><i class="fi-rs-user"></i><a href="/signup">Sign Up</a></li>
+                                <% }else{  %>
+                                    <li><i class="fi-rs-user"></i><a href="/user-account">Account</a></li>
+                                    <li><i class="fi-rs-user"></i><a href="/logout">Logout</a></li>
+                                    
+                                <%  } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom  sticky-white-bg">
+            <div class="container">
+                <div class="header-wrap header-space-between position-relative">
+                    <div class="logo logo-width-1">
+                        <a href="/"><img src="/userAssets/imgs/theme/logo.svg" alt="logo"></a>
+                    </div>
+                    <div class="main-menu main-menu-grow main-menu-padding-1 main-menu-lh-1 main-menu-mrg-1 hm3-menu-padding d-none d-lg-block hover-boder">
+                        <nav>
+                            <ul>
+
+                                <li>
+                                    <br>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-action-right">
+                        <div class="search-style-2">
+                            
+                        </div>
+                        <div class="header-action-2">
+                           
+                            <div class="header-action-icon-2">
+                                <a class="mini-cart-icon" href="/cart">
+                                    <img alt="Evara" src="/userAssets/imgs/theme/icons/icon-cart.svg">
+                                    
+                                </a>
+                                
+                            </div>
+                            <div class="header-action-icon d-block d-lg-none">
+                                <div class="burger-icon">
+                                    <span class="burger-icon-top"></span>
+                                    <span class="burger-icon-mid"></span>
+                                    <span class="burger-icon-bottom"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="mobile-header-active mobile-header-wrapper-style">
+        <div class="mobile-header-wrapper-inner">
+            <div class="mobile-header-top">
+                <div class="mobile-header-logo">
+                    <a href="/"><img src="/userAssets/imgs/theme/logo.svg" alt="logo"></a>
+                </div>
+                <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
+                    <button class="close-style search-close">
+                        <i class="icon-top"></i>
+                        <i class="icon-bottom"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-header-content-area">
+                <div class="mobile-search search-style-3 mobile-header-border">
+                    <form action="#">
+                        <input type="text" placeholder="Search for items…">
+                        <button type="submit"><i class="fi-rs-search"></i></button>
+                    </form>
+                </div>
+                <div class="mobile-menu-wrap mobile-header-border">
+                    <div class="main-categori-wrap mobile-header-border">
+                        <a class="categori-button-active-2" href="#">
+                            <span class="fi-rs-apps"></span> Browse Categories
+                        </a>
+                        <div class="categori-dropdown-wrap categori-dropdown-active-small">
+                            <ul>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-dress"></i>Women's Clothing</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-tshirt"></i>Men's Clothing</a></li>
+                                <li> <a href="shop-grid-right.html"><i class="evara-font-smartphone"></i> Cellphones</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-desktop"></i>Computer & Office</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-cpu"></i>Consumer Electronics</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-home"></i>Home & Garden</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-high-heels"></i>Shoes</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-teddy-bear"></i>Mother & Kids</a></li>
+                                <li><a href="shop-grid-right.html"><i class="evara-font-kite"></i>Outdoor fun</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mobile menu start -->
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Home</a>
+                                <ul class="dropdown">
+                                    <li><a href="index.html">Home 1</a></li>
+                                    <li><a href="index-2.html">Home 2</a></li>
+                                    <li><a href="index-3.html">Home 3</a></li>
+                                    <li><a href="index-4.html">Home 4</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop-grid-right.html">shop</a>
+                                <ul class="dropdown">
+                                    <li><a href="shop-grid-right.html">Shop Grid – Right Sidebar</a></li>
+                                    <li><a href="shop-grid-left.html">Shop Grid – Left Sidebar</a></li>
+                                    <li><a href="shop-list-right.html">Shop List – Right Sidebar</a></li>
+                                    <li><a href="shop-list-left.html">Shop List – Left Sidebar</a></li>
+                                    <li><a href="shop-fullwidth.html">Shop - Wide</a></li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Single Product</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Product – Right Sidebar</a></li>
+                                            <li><a href="shop-product-left.html">Product – Left Sidebar</a></li>
+                                            <li><a href="shop-product-full.html">Product – No sidebar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="shop-filter.html">Shop – Filter</a></li>
+                                    <li><a href="shop-wishlist.html">Shop – Wishlist</a></li>
+                                    <li><a href="shop-cart.html">Shop – Cart</a></li>
+                                    <li><a href="shop-checkout.html">Shop – Checkout</a></li>
+                                    <li><a href="shop-compare.html">Shop – Compare</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Mega menu</a>
+                                <ul class="dropdown">
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women's Fashion</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Dresses</a></li>
+                                            <li><a href="shop-product-right.html">Blouses & Shirts</a></li>
+                                            <li><a href="shop-product-right.html">Hoodies & Sweatshirts</a></li>
+                                            <li><a href="shop-product-right.html">Women's Sets</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men's Fashion</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Jackets</a></li>
+                                            <li><a href="shop-product-right.html">Casual Faux Leather</a></li>
+                                            <li><a href="shop-product-right.html">Genuine Leather</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Technology</a>
+                                        <ul class="dropdown">
+                                            <li><a href="shop-product-right.html">Gaming Laptops</a></li>
+                                            <li><a href="shop-product-right.html">Ultraslim Laptops</a></li>
+                                            <li><a href="shop-product-right.html">Tablets</a></li>
+                                            <li><a href="shop-product-right.html">Laptop Accessories</a></li>
+                                            <li><a href="shop-product-right.html">Tablet Accessories</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog-category-fullwidth.html">Blog</a>
+                                <ul class="dropdown">
+                                    <li><a href="blog-category-grid.html">Blog Category Grid</a></li>
+                                    <li><a href="blog-category-list.html">Blog Category List</a></li>
+                                    <li><a href="blog-category-big.html">Blog Category Big</a></li>
+                                    <li><a href="blog-category-fullwidth.html">Blog Category Wide</a></li>
+                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Single Product Layout</a>
+                                        <ul class="dropdown">
+                                            <li><a href="blog-post-left.html">Left Sidebar</a></li>
+                                            <li><a href="blog-post-right.html">Right Sidebar</a></li>
+                                            <li><a href="blog-post-fullwidth.html">No Sidebar</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="page-about.html">About Us</a></li>
+                                    <li><a href="page-contact.html">Contact</a></li>
+                                    <li><a href="page-account.html">My Account</a></li>
+                                    <li><a href="page-login-register.html">login/register</a></li>
+                                    <li><a href="page-purchase-guide.html">Purchase Guide</a></li>
+                                    <li><a href="page-privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="page-terms.html">Terms of Service</a></li>
+                                    <li><a href="page-404.html">404 Page</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">French</a></li>
+                                    <li><a href="#">German</a></li>
+                                    <li><a href="#">Spanish</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- mobile menu end -->
+                </div>
+                <div class="mobile-header-info-wrap mobile-header-border">
+                    <div class="single-mobile-header-info mt-30">
+                        Kerala
+                    </div>
+                    <div class="single-mobile-header-info">
+                        <a href="page-login-register.html">Log In / Sign Up </a>
+                    </div>
+                    <div class="single-mobile-header-info">
+                        <a href="#">(+01) - 2345 - 6789 </a>
+                    </div>
+                </div>
+                <div class="mobile-social-icon">
+                    <h5 class="mb-15 text-grey-4">Follow Us</h5>
+                    <a href="#"><img src="/userAssets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
+                    <a href="#"><img src="/userAssets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
+                    <a href="#"><img src="/userAssets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
+                    <a href="#"><img src="/userAssets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
+                    <a href="#"><img src="/userAssets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main">
+        <div class="page-header breadcrumb-wrap">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="/" rel="nofollow">Home</a>
+                    <span></span> Account
+                </div>
+            </div>
+        </div>
+        <section class="pt-150 pb-150">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 m-auto">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="dashboard-menu">
+                                    <ul class="nav flex-column" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i>Dashboard</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
+                                        </li>   
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fas fa-wallet mr-10"></i>Wallet</a>
+                                        </li>                                
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i>My Address</a>
+                                        </li>
+                                    
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="logout"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <style>
+                                /* Custom styles for highlighting and underlining */
+                                #referralId {
+                                  background-color: #ffffcc; /* Highlight color */
+                                  text-decoration: underline; /* Underline */
+                                  /* Add more custom styles if needed */
+                                }
+                              </style>
+                            
+                            <div class="col-md-8">
+                                <div class="tab-content dashboard-content">
+                                    <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">Hello <%= userData.username ? userData.username.replace(/\b\w/g, c => c.toUpperCase()) : '' %></h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="mb-0">Welcome to the dashboard </h3>
+                                                <p>From your account dashboard. you can easily check  view your recent orders, manage your shipping and billing addresses and check your wallet.</p>
+                                                <p>Refer Others with your referral ID: <span id="referralId"><%= userData.referelId %></span></p> 
+
+                                                <button class = "btn-sm btn" onclick="copyReferralId()">Copy Referral ID</button>
+                                            </div>
+                                            <script>
+                                                function copyReferralId() {
+                                                  const referralIdElement = document.getElementById('referralId');
+                                                  const referralIdText = referralIdElement.textContent || referralIdElement.innerText;
+                                                  const textarea = document.createElement('textarea');
+                                                 textarea.value = referralIdText;
+                                                  document.body.appendChild(textarea);
+                                                  textarea.select();
+                                                  textarea.setSelectionRange(0, 99999); // For mobile devices
+                                                  document.execCommand('copy');
+                                                  document.body.removeChild(textarea);
+                                                  referralIdElement.classList.add('bg-warning');
+                                                  setTimeout(() => {
+                                                    referralIdElement.classList.remove('bg-warning');
+                                                  }, 1000);
+                                                }
+                                              </script>
+                                            <% if (userData.appliedReferel) { %>
+                                                <div></div>
+                                                <% } else { %>
+                                                  
+                                                <div class="d-flex justify-content-between align-items-center p-3 border-top">
+                                                    <div id="referralSection">
+                                                        <h4 style="font-size: small; font-weight: 500">
+                                                            Got a referral ? Paste here for Bonus
+                                                        </h4>
+                                                        <br />
+                                                        <div>
+                                                            <input style="border: 2px solid rgb(80, 80, 80)" type="text" placeholder="Paste Code Here" id="codeInput" />
+                                                        </div>
+                                                        <br />
+                                                        <button class="btn btn-fill-out btn-block btn-sm" id="referel">
+                                                            Apply
+                                                        </button>
+                                                        </div>
+                                                </div>
+                                                <div>Referals Available:<br>
+                                                    <% if (referels) { %>
+                                                        <% referels.forEach(element => { %>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= element.referelId %><br>
+                                                        <% }); %>
+                                                    <% } %>
+                                                </div>
+                                                
+                                            <% } %>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => { 
+                                            const referel = document.getElementById("referel");
+                                            referel.addEventListener("click", (e) => {
+                                                const codeValue = document.getElementById("codeInput").value.trim();
+                                                if (codeValue.trim() !== "") {
+                                              fetch(`/applyreferel?referel=${codeValue}`, {
+                                                method: "POST",
+                                                headers: {
+                                                  "Content-Type": "application/json",
+                                                },
+                                              })
+                                                .then((response) => {
+                                                  if (!response.ok) {
+                                                    throw new Error(`HTTP error!`);
+                                                  }
+                                                  return response.json();
+                                                })
+                  
+                                                .then((data) => {
+                                                    if (data.success) {
+                                                    console.log(data);
+                                                    Swal.fire({
+                                                        position: "top-centre",
+                                                        icon: "success",
+                                                        title: "Credited ₹100 in Wallet",
+                                                        showConfirmButton: false,
+                                                        timer: 1500,
+                                                    });
+                                                } else {
+                                                    console.error("Error:", data.message);
+                                                    Swal.fire({
+                                                        icon: "error",
+                                                        title: "Oops...",
+                                                        text: data.error,
+                                                        showConfirmButton: false,
+                                                    });
+                                                }
+                                                })
+ 
+                                            } else {
+                                                Swal.fire({
+                                                    icon: "error",
+                                                    title: "Oops...",
+                                                    text: "Enter a Code Before Applying !",
+                                                    showConfirmButton: false,
+                                                  });
+                                            }
+
+                                             })
+                                        })
+                                        
+                                    </script>
+                                    <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">Your Orders</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        
+                                                        <% if(userOrders.length > 0) {%>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Date</th>
+                                                                <th>Status</th>
+                                                                <th>Total</th>
+                                                                <th>Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% userOrders.reverse().slice(0, 5).forEach(order => { %>
+                                                                <tr>
+                                                                    <td><%= moment(order.orderDate).format("MMM Do YYYY") %></td>
+                                                                    <td><%= order.orderStatus %></td> 
+                                                                    <td> ₹<%= order.totalAmount%> for <%= order.products.length %> item[s]</td>
+                                                                    <td><a href="/view-order?orderId=<%= order._id %>" class="btn-small d-block">View</a></td>
+                                                                </tr>
+                                                            <% }); %>
+                                                            <% if (userOrders.length > 5) { %>
+                                                                <tr id="showMoreRow">
+                                                                    <td colspan="4" class="text-end">
+                                                                        <a id="showMoreBtn">Show More</a>
+                                                                    </td>
+                                                                </tr>
+                                                            <% } %>
+                                                            <% }else { %>
+                                                                <div class="no-orders">
+                                                                    <h6>You have no orders.</h6>
+                                                                </div>
+                                                            <% } %>
+                                                        </tbody>                                                        
+                                                    </table>
+                                                    <div id="hiddenOrders" style="display: none;"><%= JSON.stringify(userOrders.slice(5)) %></div>
+                                                    <script>
+                                                        document.getElementById('showMoreBtn').addEventListener('click', function() {
+                                                            const hiddenOrdersData = JSON.parse(document.getElementById('hiddenOrders').textContent);
+                                                            const tbody = document.querySelector('tbody');
+                                                            
+                                                            hiddenOrdersData.forEach(order => {
+                                                                const tr = document.createElement('tr');
+                                                                tr.innerHTML = `
+                                                                <td>${moment(order.orderDate).format("MMM Do YYYY")}</td>
+                                                                    <td>${order.orderStatus}</td>
+                                                                    <td> ₹${order.totalAmount} for ${order.products.length} item[s]</td>
+                                                                    <td><a href="/view-order?orderId=${order._id}" class="btn-small d-block">View</a></td>
+                                                                `;
+                                                                tbody.appendChild(tr);
+                                                            });
+                                                    
+                                                            document.getElementById('showMoreRow').style.display = 'none';
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">Your Wallet</h5>
+                                            </div>
+                                            
+                                            <div class="card-body contact-from-area">
+                                                <div id="balance">
+                                                  <h5>Account Balance</h5>
+                                                  <p>
+                                                    Your current balance:
+                                                    <span class="ml-10" style="font-size: medium; font-weight: 600">₹ <%= wallet.amount %> </span>
+                                                  </p>
+                                                </div>
+                                              
+                                                <div id="wallet-history">
+                                                    <br>
+                                                  <h5>Wallet History</h5>
+                                                  <table class="table">
+                                                   <br>
+                                                    <tbody>
+                                                      <% walletHistory.forEach(entry => { %>
+                                                        <tr>
+                                                          <td><%= entry.type %></td>
+                                                          <td><%= moment(entry.transactionDate).format('MM/DD/YY') %></td>
+                                                          <td <% if (entry.amount < 0) { %> style="color: red;" <% } else { %> style="color: green;" <% } %>>
+                                                            <%= entry.amount < 0 ? '-' : '+' %><strong>₹ <%= Math.abs(entry.amount) %> </strong>
+                                                          </td>
+                                                          
+                                                        </tr>
+                                                      <% }); %>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                              </div>
+                                              
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">Orders tracking</h5>
+                                            </div>
+                                            <div class="card-body contact-from-area">
+                                                <p>To track your order please enter your OrderID in the box below and press "Track" button. This was given to you on your receipt and in the confirmation email you should have received.</p>
+                                                <div class="row">
+                                                    <div class="col-lg-8">
+                                                        <form class="contact-form-style mt-30 mb-50" action="#" method="post">
+                                                            <div class="input-style mb-20">
+                                                                <label>Order ID</label>
+                                                                <input name="order-id" placeholder="Found in your order confirmation email" type="text" class="square">
+                                                            </div>
+                                                            <div class="input-style mb-20">
+                                                                <label>Billing email</label>
+                                                                <input name="billing-email" placeholder="Email you used during checkout" type="email" class="square">
+                                                            </div>
+                                                            <button class="submit submit-auto-width" type="submit">Track</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                                     <style>
+                                        .redcolor {
+                                                color: #ce1212; 
+                                            }
+                                     </style>
+                                        <div class="row">
+                                            <div class="mb-20">
+                                                <a data-bs-toggle="modal" data-bs-target="#addAddressModal">Add a new address</a>
+                                            </div>
+                                            <% if(userAddress?.address.length > 0){ %>  
+                                            <% userAddress.address.forEach((address,index) => { %>
+                                            <div class="col-lg-6">
+                                                
+                                                    
+                                                    <div class="card mb-3 mb-lg-0 mt-10">
+                                                        <div class="card-header">
+                                                            <h5 class="mb-0">Address <%= index+1 %></h5>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p> <%= address.name %> </p>
+                                                            <address> <%= address.addressType %> </address>
+                                                            <p> <%= address.landMark %> </p>
+                                                            <p> <%= address.city %> </p>
+                                                            <p> <%= address.pincode %> </p>
+                                                            <p> <%= address.state %> </p>
+                                                            <p> <%= address.phone %>, <%= address.altPhone %> </p>
+                                                            <a data-bs-toggle="modal" class="text-success" data-bs-target="#addressModal" data-address-id="<%= address._id %>" data-daid="<%= address._id %>" onclick="editAddress('<%= address._id %>')">Edit</a>
+                                                            <span class="mx-3"></span>
+                                                            <a href="#" class="btn-small redcolor"  onclick="confirmDelete('<%= address._id %>')">Delete</a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }) %>
+                                                <% }else{ %>
+                                                    <h5 class="mt-30">No Saved Addresses</h5>
+                                                <% } %>
+                                             </div>
+                                        
+                                    </div>
+                                    <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="addressModalLabel">Edit Address</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="/post-edit-address" id="myForm">
+                                                    <div class="ship_detail">
+                                                        <div id="collapseAddress" class="different_address"> 
+                                                            <div class="form-group">
+                                                                <input type="text"  name="name" id="username" placeholder="Name *">
+                                                                <div id="usernameError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" name="addressType" id="addressloc" placeholder="Address *">
+                                                                <div id="addressError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="text" name="city" id="city" placeholder="City *">
+                                                                <div id="cityError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="text" name="landMark" id="landmark" placeholder="Landmark *">
+                                                                <div id="landmarkError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="text" name="state" id="state" placeholder="State *">
+                                                                <div id="stateError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="number" name="pincode" id="postcode" placeholder="Postcode  *">
+                                                                <div id="postcodeError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="number" name="phone" id="phoneNumber" placeholder="Phone Number  *">
+                                                                <div id="phoneNumberError" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="number"  name="altPhone" id="altphone" placeholder="Alternative Phone Number  *">
+                                                                <div id="altphoneError" class="error"></div>
+                                                            </div>
+                                                            <div>
+                                                                <button type="submit" id="submitButton">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ADD ADDRESS MODAL -->
+
+                                    <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="addressModalLabel">Add Address</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="/post-add-address?source=account" id="myForm1">
+                                                    <div class="ship_detail">
+                                                        <div id="collapseAddress" class="different_address">
+                                                            <div class="form-group">
+                                                                <input type="text"   name="name" id="username1" placeholder="Name *">
+                                                                <div id="username1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text"  name="addressType" id="address1" placeholder="Address *">
+                                                                <div id="address1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="text"  name="city" id="city1" placeholder="City *">
+                                                                <div id="city1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="text"  name="landMark" id="landmark1" placeholder="Landmark *">
+                                                                <div id="landmark1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="text"  name="state" id="state1" placeholder="State *">
+                                                                <div id="state1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="number"  name="pincode" id="postcode1" placeholder="Postcode  *">
+                                                                <div id="postcode1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="number"  name="phone" id="phoneNumber1" placeholder="Phone Number  *">
+                                                                <div id="phoneNumber1Error" class="error"></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input  type="number"  name="altPhone" id="altphone1" placeholder="Alternative Phone Number  *">
+                                                                <div id="altphone1Error" class="error"></div>
+                                                            </div>
+                                                            <div>
+                                                                <button type="submit" id="submitButton2">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- add address modal ends here -->
+                                    <div id="rendered-address" hidden><%- JSON.stringify(userAddress) %></div>
+                                    <!-- add address script  -->
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            const submitButton = document.getElementById('submitButton2');
+                                    
+                                            submitButton.addEventListener("click", (e) => {
+                                                if (!validateForm()) {
+                                                    e.preventDefault();
+                                                }else{
+                                                   
+                                                }
+                                            });
+                                           
+                                    
+                                            const validateForm = () => {
+                                                resetErrorMessages();
+                                    
+                                                const inputFields = [
+                                                    { id: 'username1', name: 'Username' },
+                                                    { id: 'address1', name: 'Address' },
+                                                    { id: 'city1', name: 'City' },
+                                                    { id: 'landmark1', name: 'Landmark' },
+                                                    { id: 'state1', name: 'State' },
+                                                    { id: 'postcode1', name: 'Postcode' },
+                                                    { id: 'phoneNumber1', name: 'Phone Number' },
+                                                    { id: 'altphone1', name: 'Alternative Phone Number' }
+                                                ];
+                                    
+                                                let isValid = true;
+                                    
+                                                inputFields.forEach(field => {
+                                                    const value = document.getElementById(`${field.id}`).value;
+                                                    const trimmedValue = value.trim();
+                                    
+                                                    if (value !== trimmedValue) {
+                                                        showError(`${field.id}Error`, `${field.name} cannot have whitespaces`);
+                                                        isValid = false;
+                                                    }
+                                    
+                                                    if (trimmedValue == "") {
+                                                        showError(`${field.id}Error`, `${field.name} cannot be empty`);
+                                                        isValid = false;
+                                                    }
+                                                });
+                                    
+                                                const phoneNumber = String(document.getElementById('phoneNumber1').value);
+                                                const altphone = String(document.getElementById('altphone1').value);
+                                                const postcode = String(document.getElementById('postcode1').value);
+
+                                    
+                                                if (isNaN(phoneNumber) || phoneNumber.length !== 10 || phoneNumber[0] === '0') {
+                                                    showError('phoneNumber1Error', 'Phone number must be a number with exactly 10 digits and should not start with 0');
+                                                    isValid = false;
+                                                }
+                                    
+                                                if (isNaN(altphone) || altphone.length !== 10 || altphone[0] === '0') {
+                                                    showError('altphone1Error', 'Alternative phone number must be a number with exactly 10 digits and should not start with 0');
+                                                    isValid = false;
+                                                }
+                                    
+                                                if (isNaN(postcode) || postcode.length !== 6) {
+                                                    showError('postcode1Error', 'Postcode must be a number with exactly 6 digits');
+                                                    isValid = false;
+                                                }
+                                    
+                                                if (phoneNumber === altphone) {
+                                                    showError('phoneNumber1Error', 'Phone number and alternative phone number should be different');
+                                                    showError('altphone1Error', 'Phone number and alternative phone number should be different');
+                                                    isValid = false;
+                                                }
+                                    
+                                                return isValid;
+                                            }
+                                            
+    
+                                    
+                                            function showError(elementId, message) {
+                                                const errorElement = document.getElementById(elementId);
+                                    
+                                                if (errorElement) {
+                                                    errorElement.textContent = message;
+                                                    errorElement.style.color = 'red';
+                                                } else {
+                                                    console.error(`Error element with ID '${elementId}' not found.`);
+                                                }
+                                            }
+                                    
+                                            function resetErrorMessages() {
+                                                const errorElements = document.querySelectorAll('.error');
+                                                errorElements.forEach((element) => {
+                                                    element.textContent = '';
+                                                });
+                                            }
+                                        });
+                                    </script>
+                                    <!-- add address script ends here -->
+                                    <script>
+                                   let currentAddressId;
+                                            const userAddress = JSON.parse(document.getElementById("rendered-address").textContent);
+                                            function editAddress(addressId)  {
+                                                currentAddressId = addressId;
+                                                userAddress.address.forEach((address) => {
+                                                    if(address._id == addressId){
+                                                        document.getElementById('username').value = address.name;
+                                                        document.getElementById('addressloc').value = address.addressType;
+                                                        document.getElementById('city').value = address.city;
+                                                        document.getElementById('landmark').value = address.landMark;
+                                                        document.getElementById('state').value = address.state;
+                                                        document.getElementById('postcode').value = address.pincode;
+                                                        document.getElementById('phoneNumber').value = address.phone;
+                                                        document.getElementById('altphone').value = address.altPhone;
+                                                        
+                                                    }
+                                                });
+                                                
+                                            }
+
+                                    
+                                document.addEventListener('DOMContentLoaded', function () {
+                                     // var dataAddressId = document.querySelector(`[data-address-id="${addressId}"]`).dataset.addressId;
+                                // console.log(dataAddressId);
+                                const form = document.getElementById('myForm');
+                               
+
+                                form.addEventListener('submit', function (event) {
+                                    event.preventDefault(); 
+
+                                    clearErrorMessages();
+
+                                    const name = validateField('username', 'Name cannot be blank.');
+                                    const addressType = validateField('addressloc', 'Address cannot be blank.');
+                                    const city = validateField('city', 'City cannot be blank.');
+                                    const landmark = validateField('landmark', 'Landmark cannot be blank.');
+                                    const state = validateField('state', 'State cannot be blank.');
+                                    const postcode = validateNumberField('postcode', 'Invalid postcode. It should be a 6-digit number.', 6);
+                                    const phoneNumber = validateNumberField('phoneNumber', 'Invalid phone number. It should be a 10-digit number and cannot start with 0.', 10, true);
+                                    const altPhone = validateNumberField('altphone', 'Invalid alternative phone number. It should be a 10-digit number and cannot start with 0.', 10, true);
+
+                                    if (name && addressType && city && landmark && state && postcode && phoneNumber && altPhone) {
+                                        const newData = {
+                                            name,
+                                            addressType,
+                                            city,
+                                            landmark,
+                                            state,
+                                            postcode,
+                                            phoneNumber,
+                                            altPhone,
+                                        };
+                                        
+                                        sendDataToServer(newData, currentAddressId);
+                                    }
+                                });
+                                 function sendDataToServer(data,addressId) {
+                                    
+                            const apiUrl = '/post-edit-address';
+
+                            fetch(apiUrl, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ data, addressId }),
+                            })
+                            .then(response => response.json())
+                            .then(responseData => {
+                                if (responseData.success) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success!',
+                                        text: responseData.message,
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                        willClose: () => {
+                                            const addressModal = new bootstrap.Modal(document.getElementById('addressModal'));
+                                            setTimeout(() => {
+                                                // addressModal.hide();
+                                                window.location.href = `/user-account`;
+                                             }, 100);
+                                             
+                                        },
+                                    });
+                                } else {
+                                    console.error('Server response indicates failure:', responseData);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error sending data to server:', error);
+                            });
+                        }
+
+                                        function validateField(fieldId, errorMessage) {
+                                            const field = document.getElementById(fieldId);
+                                            const value = field.value.trim();
+
+                                            if (!value) {
+                                                displayErrorMessage(field, errorMessage);
+                                                return null;
+                                            }
+
+                                            return value;
+                                        }
+
+                                        function validateNumberField(fieldId, errorMessage, length, disallowZero) {
+                                            const field = document.getElementById(fieldId);
+                                            const value = field.value.trim();
+
+                                            if (disallowZero && value === '0') {
+                                                displayErrorMessage(field, errorMessage);
+                                                return null;
+                                            }
+
+                                            if (isNaN(value) || value.length !== length) {
+                                                displayErrorMessage(field, errorMessage);
+                                                return null;
+                                            }
+
+                                            return value;
+                                        }
+
+                                        function displayErrorMessage(field, errorMessage) {
+                                            const errorDiv = document.createElement('div');
+                                            errorDiv.classList.add('text-danger');
+                                            errorDiv.textContent = errorMessage;
+
+                                            field.parentNode.appendChild(errorDiv);
+                                        }
+
+                                        function clearErrorMessages() {
+                                            const errorMessages = document.querySelectorAll('.text-danger');
+                                            errorMessages.forEach(function (errorMessage) {
+                                                errorMessage.remove();
+                                            });
+                                        }
+                                    });
+                                    function confirmDelete(addressId) {
+                                        Swal.fire({
+                                            icon: 'warning',
+                                            title: 'Are you sure?',
+                                            text: 'You won\'t be able to revert this!',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#d33',
+                                            cancelButtonColor: '#3085d6',
+                                            confirmButtonText: 'Yes, delete it!'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = `/delete-address?addressId=${addressId}`;
+                                            }
+                                        });
+                                    }
+
+                                  </script>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Preloader Start -->
+    <!-- <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="text-center">
+                    <h5 class="mb-5">Now Loading</h5>
+                    <div class="loader">
+                        <div class="bar bar1"></div>
+                        <div class="bar bar2"></div>
+                        <div class="bar bar3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Vendor JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/userAssets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="/userAssets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/userAssets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/userAssets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/userAssets/js/plugins/slick.js"></script>
+    <script src="/userAssets/js/plugins/jquery.syotimer.min.js"></script>
+    <script src="/userAssets/js/plugins/wow.js"></script>
+    <script src="/userAssets/js/plugins/jquery-ui.js"></script>
+    <script src="/userAssets/js/plugins/perfect-scrollbar.js"></script>
+    <script src="/userAssets/js/plugins/magnific-popup.js"></script>
+    <script src="/userAssets/js/plugins/select2.min.js"></script>
+    <script src="/userAssets/js/plugins/waypoints.js"></script>
+    <script src="/userAssets/js/plugins/counterup.js"></script>
+    <script src="/userAssets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="/userAssets/js/plugins/images-loaded.js"></script>
+    <script src="/userAssets/js/plugins/isotope.js"></script>
+    <script src="/userAssets/js/plugins/scrollup.js"></script>
+    <script src="/userAssets/js/plugins/jquery.vticker-min.js"></script>
+    <script src="/userAssets/js/plugins/jquery.theia.sticky.js"></script>
+    <!-- Template  JS -->
+    <script src="/userAssets/js/maind134.js?v=3.4"></script>
+</body>
+<%- include("../partials/user-footer")%>
